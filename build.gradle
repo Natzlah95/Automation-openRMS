@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.4'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.infokes'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+springBoot {
+    mainClass = 'com.infokes.SeleniumSpringBootApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.seleniumhq.selenium:selenium-devtools-v135:4.31.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+    implementation 'com.aventstack:extentreports:5.0.9'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    
+    testImplementation 'org.testng:testng:7.11.0'
+    
+    testImplementation 'org.assertj:assertj-core:3.25.3'
+}
+
+
+test {
+    useJUnitPlatform()
+    ignoreFailures = true
+}
